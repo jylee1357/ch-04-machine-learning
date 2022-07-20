@@ -34,3 +34,19 @@ for i in customer_clustering["cluster"].unique():
     tmp = pca_df.loc[pca_df["cluster"] == i]
     plt.scatter(tmp[0],tmp[1])
 ```
+
+```
+#LinearRegression
+
+Example)
+predict_data = predict_data.loc[predict_data["start_date"] >= pd.to_datetime("20180401")]
+
+from sklearn import linear_model
+import sklearn.model_selection
+model = linear_model.LinearRegression()
+
+X = predict_data[["count_0","count_1","count_2","count_3","count_4","count_5","period"]]
+y = predict_data["count_pred"]
+X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(X,y)
+model.fit(X_train, y_train)
+```
